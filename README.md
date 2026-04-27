@@ -94,22 +94,22 @@ The platform features an advanced **"Safe-Trash" transaction logic** with full u
 
 ## 📦 Installation
 
-### Recommended: pipx (Isolated Environment)
-```bash
-pipx install dmlclean
-```
-
-### Alternative: pip
-```bash
-pip install dmlclean
-```
-
 ### Docker (Multi-Architecture)
 ```bash
 docker pull ghcr.io/devmayank-official/dmlclean:latest
 docker run -v /:/host ghcr.io/devmayank-official/dmlclean:latest scan --path /host/tmp
 ```
 
+Disabled for v0.1.0
+### Recommended: pipx (Isolated Environment)
+```bash
+pipx install dmlclean
+```
+Disabled for v0.1.0
+### Alternative: pip
+```bash
+pip install dmlclean
+```
 ---
 
 ## 🚀 Quick Start
