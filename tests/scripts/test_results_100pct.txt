@@ -1,0 +1,143 @@
+[94m======================================================================[0m
+[94m  DMLClean v0.1.0 - Full Command Suite Test[0m
+[94m  Testing 89 commands[0m
+[94m  Output: C:\Users\Santosh\AppData\Local\Temp\dmlclean-test-20260316-160725[0m
+[94m======================================================================[0m
+
+[1/89] Show version (--version) ... [92m[PASS] PASS[0m
+[2/89] Version command ... [92m[PASS] PASS[0m
+[3/89] Main help ... [92m[PASS] PASS[0m
+[4/89] Scan help ... [92m[PASS] PASS[0m
+[5/89] Clean help ... [92m[PASS] PASS[0m
+[6/89] Config option with value ... [92m[PASS] PASS[0m
+[7/89] Verbose mode ... [91m[FAIL] FAIL (exit: 1)[0m
+[8/89] Quiet mode ... [91m[FAIL] FAIL (exit: 1)[0m
+[9/89] Basic scan (fast mode) ... [91m[FAIL] FAIL (exit: 1)[0m
+[10/89] Scan fast mode ... [91m[FAIL] FAIL (exit: 1)[0m
+[11/89] Scan deep mode ... [91m[FAIL] FAIL (exit: 1)[0m
+[12/89] Scan with JSON output ... [92m[PASS] PASS[0m
+[13/89] Scan specific category ... [91m[FAIL] FAIL (exit: 1)[0m
+[14/89] Scan multiple categories ... [91m[FAIL] FAIL (exit: 1)[0m
+[15/89] Scan specific path ... [91m[FAIL] FAIL (exit: 1)[0m
+[16/89] Scan quiet mode ... [92m[PASS] PASS[0m
+[17/89] Scan deep JSON ... [92m[PASS] PASS[0m
+[18/89] Clean dry-run (default) ... [92m[PASS] PASS[0m
+[19/89] Clean trash mode (forced) ... [91m[FAIL] FAIL (exit: 1)[0m
+[20/89] Clean with profile ... [92m[PASS] PASS[0m
+[21/89] Clean specific category ... [92m[PASS] PASS[0m
+[22/89] Clean with age filter ... [92m[PASS] PASS[0m
+[23/89] Clean with size filter ... [92m[PASS] PASS[0m
+[24/89] Clean designer profile ... [91m[FAIL] FAIL (exit: 1)[0m
+[25/89] Clean system-admin profile ... [92m[PASS] PASS[0m
+[26/89] List protected paths ... [92m[PASS] PASS[0m
+[27/89] Check if path protected ... [91m[FAIL] FAIL (exit: 2)[0m
+[28/89] Check temp path protected ... [91m[FAIL] FAIL (exit: 2)[0m
+[29/89] List history ... [92m[PASS] PASS[0m
+[30/89] List history with limit ... [92m[PASS] PASS[0m
+[31/89] List history JSON ... [92m[PASS] PASS[0m
+[32/89] List schedules ... [91m[FAIL] FAIL (exit: 1)[0m
+[33/89] List schedules JSON ... [91m[FAIL] FAIL (exit: 1)[0m
+[34/89] Show config ... [92m[PASS] PASS[0m
+[35/89] Show config JSON ... [92m[PASS] PASS[0m
+[36/89] Validate config ... [91m[FAIL] FAIL (exit: 1)[0m
+[37/89] Show last report ... [91m[FAIL] FAIL (exit: 1)[0m
+[38/89] Last report JSON ... [91m[FAIL] FAIL (exit: 1)[0m
+[39/89] Report export ... [91m[FAIL] FAIL (exit: 1)[0m
+[40/89] Show trends (default) ... [91m[FAIL] FAIL (exit: 1)[0m
+[41/89] Trends last 7 days ... [91m[FAIL] FAIL (exit: 1)[0m
+[42/89] Trends last 30 days (--days) ... [91m[FAIL] FAIL (exit: 1)[0m
+[43/89] Trends JSON ... [92m[PASS] PASS[0m
+[44/89] List profiles ... [92m[PASS] PASS[0m
+[45/89] Show developer profile ... [92m[PASS] PASS[0m
+[46/89] Show designer profile ... [92m[PASS] PASS[0m
+[47/89] Show system-admin profile ... [92m[PASS] PASS[0m
+[48/89] Show gamer profile ... [92m[PASS] PASS[0m
+[49/89] Show minimal profile ... [92m[PASS] PASS[0m
+[50/89] List plugins ... [91m[FAIL] FAIL (exit: 1)[0m
+[51/89] List plugins JSON ... [92m[PASS] PASS[0m
+[52/89] Plugin info (browser) ... [92m[PASS] PASS[0m
+[53/89] Plugin info (dev_python) ... [92m[PASS] PASS[0m
+[54/89] Plugin info (system_junk) ... [92m[PASS] PASS[0m
+[55/89] Show storage path (default) ... [91m[FAIL] FAIL (exit: 1)[0m
+[56/89] Show base location ... [91m[FAIL] FAIL (exit: 1)[0m
+[57/89] Show config location ... [91m[FAIL] FAIL (exit: 1)[0m
+[58/89] Show data location ... [91m[FAIL] FAIL (exit: 1)[0m
+[59/89] Show logs location ... [91m[FAIL] FAIL (exit: 1)[0m
+[60/89] Show history location ... [91m[FAIL] FAIL (exit: 1)[0m
+[61/89] System information ... [92m[PASS] PASS[0m
+[62/89] System version ... [92m[PASS] PASS[0m
+[63/89] Check for updates ... [91m[FAIL] FAIL (exit: 1)[0m
+[64/89] System diagnostics ... [92m[PASS] PASS[0m
+[65/89] Doctor JSON output ... [92m[PASS] PASS[0m
+[66/89] Complex scan ... [92m[PASS] PASS[0m
+[67/89] Complex clean ... [92m[PASS] PASS[0m
+[68/89] Multi-path scan ... [92m[PASS] PASS[0m
+[69/89] Complex trash ... [91m[FAIL] FAIL (exit: 1)[0m
+[70/89] Trends with JSON ... [92m[PASS] PASS[0m
+[71/89] Report export ... [91m[FAIL] FAIL (exit: 1)[0m
+[72/89] Doctor (no verbose option) ... [92m[PASS] PASS[0m
+[73/89] Config JSON ... [92m[PASS] PASS[0m
+[74/89] Plugin list (no --all option) ... [91m[FAIL] FAIL (exit: 1)[0m
+[75/89] History large limit ... [92m[PASS] PASS[0m
+[76/89] Protect list (no JSON option) ... [92m[PASS] PASS[0m
+[77/89] Schedule list (no --all option) ... [91m[FAIL] FAIL (exit: 1)[0m
+[78/89] Invalid scan mode (should fail) ... [91m[FAIL] FAIL (exit: 1)[0m
+[79/89] Invalid clean mode (should fail) ... [91m[FAIL] FAIL (exit: 1)[0m
+[80/89] Negative age (should fail) ... [91m[FAIL] FAIL (exit: 1)[0m
+[81/89] Invalid category (should fail) ... [91m[FAIL] FAIL (exit: 1)[0m
+[82/89] Invalid profile (should fail) ... [91m[FAIL] FAIL (exit: 1)[0m
+[83/89] Invalid plugin (should fail) ... [91m[FAIL] FAIL (exit: 1)[0m
+[84/89] Invalid location (should fail) ... [91m[FAIL] FAIL (exit: 1)[0m
+[85/89] Negative days (should fail) ... [91m[FAIL] FAIL (exit: 1)[0m
+[86/89] Zero limit (should fail) ... [91m[FAIL] FAIL (exit: 1)[0m
+[87/89] Extreme limit (should fail) ... [91m[FAIL] FAIL (exit: 1)[0m
+[88/89] Negative size (should fail) ... [91m[FAIL] FAIL (exit: 1)[0m
+[89/89] Negative days via --days (should fail) ... [91m[FAIL] FAIL (exit: 1)[0m
+
+[94m======================================================================[0m
+[94mTEST SUMMARY[0m
+[94m======================================================================[0m
+Total Commands: 89
+[92m[PASS] Passed: 44[0m
+[91m[FAIL] Failed: 45[0m
+Pass Rate: 49.4%
+
+Results saved to:
+  - Text Log: C:\Users\Santosh\AppData\Local\Temp\dmlclean-test-20260316-160725\test_results.txt
+  - JSON Report: C:\Users\Santosh\AppData\Local\Temp\dmlclean-test-20260316-160725\test_results.json
+
+[91m[FAIL] FAILURE: 45 commands failed[0m
+[93m   Review detailed logs for debugging[0m
+
+[91mFailed Commands:[0m
+  [7] Verbose mode
+      Command: python -m dmlclean --verbose scan
+      Exit: 1
+  [8] Quiet mode
+      Command: python -m dmlclean --quiet scan
+      Exit: 1
+  [9] Basic scan (fast mode)
+      Command: python -m dmlclean scan
+      Exit: 1
+  [10] Scan fast mode
+      Command: python -m dmlclean scan --mode fast
+      Exit: 1
+  [11] Scan deep mode
+      Command: python -m dmlclean scan --mode deep
+      Exit: 1
+  [13] Scan specific category
+      Command: python -m dmlclean scan --categories browser
+      Exit: 1
+  [14] Scan multiple categories
+      Command: python -m dmlclean scan --categories browser,dev_python
+      Exit: 1
+  [15] Scan specific path
+      Command: python -m dmlclean scan --path C:\Users\Santosh\AppData\Local\Temp
+      Exit: 1
+  [19] Clean trash mode (forced)
+      Command: python -m dmlclean clean --mode trash --force
+      Exit: 1
+  [24] Clean designer profile
+      Command: python -m dmlclean clean --profile designer --mode trash --force
+      Exit: 1
+  ... and 35 more

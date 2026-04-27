@@ -1,0 +1,51 @@
+repos:
+  - repo: https://github.com/astral-sh/ruff-pre-commit
+    rev: v0.3.0
+    hooks:
+      - id: ruff
+        args: [--fix, --exit-non-zero-on-fix]
+      - id: ruff-format
+
+  - repo: https://github.com/pre-commit/mirrors-mypy
+    rev: v1.8.0
+    hooks:
+      - id: mypy
+        additional_dependencies:
+          - typer>=0.12
+          - rich>=13.7
+          - psutil>=5.9
+          - send2trash>=1.8
+          - platformdirs>=4.2
+          - aiofiles>=23.2
+          - apscheduler>=3.10
+          - loguru>=0.7
+          - pydantic>=2.6
+          - xxhash>=3.4
+          - humanize>=4.9
+          - watchdog>=4.0
+          - croniter>=2.0
+          - parsedatetime>=2.6
+          - types-psutil
+          - types-aiofiles
+        exclude: ^tests/
+
+  - repo: https://github.com/PyCQA/bandit
+    rev: 1.7.7
+    hooks:
+      - id: bandit
+        args: ["-r", "src/", "-ll"]
+        exclude: ^tests/
+
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v4.5.0
+    hooks:
+      - id: trailing-whitespace
+      - id: end-of-file-fixer
+      - id: check-yaml
+        args: ["--unsafe"]
+      - id: check-json
+      - id: check-toml
+      - id: check-added-large-files
+        args: ["--maxkb=1000"]
+      - id: detect-private-key
+      - id: check-merge-conflict

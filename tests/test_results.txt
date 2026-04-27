@@ -1,0 +1,1003 @@
+DMLClean v0.1.0 - Command Test Suite
+Started: 2026-03-14T09:39:29.950110
+======================================================================
+
+[1] Show version (--version)
+    Command: python -m dmlclean --version
+    ✅ PASS (exit: 0)
+    Duration: 7.43s
+
+[2] Version command
+    Command: python -m dmlclean version
+    ✅ PASS (exit: 0)
+    Duration: 7.31s
+
+[3] Main help
+    Command: python -m dmlclean --help
+    ✅ PASS (exit: 0)
+    Duration: 7.50s
+
+[4] Scan help
+    Command: python -m dmlclean scan --help
+    ✅ PASS (exit: 0)
+    Duration: 7.72s
+
+[5] Clean help
+    Command: python -m dmlclean clean --help
+    ✅ PASS (exit: 0)
+    Duration: 8.07s
+
+[6] Config option with value
+    Command: python -m dmlclean --config config.toml
+    ✅ PASS (exit: 0)
+    Duration: 6.84s
+
+[7] Verbose mode
+    Command: python -m dmlclean --verbose scan
+    ❌ FAIL (exit: 1)
+    Output: +---------------------------- +---------------------------- 
+    Error: [32m2026-03-14 09:40:20.433[0m | [34m[1mDEBUG   [0m | [36mdmlclean.domain.events[0m:[36msubscribe[0m:[36m304[0m - [34m[1mEventBus: Subscribed handler to CleanOperationCompleted[0m
+[32m2
+    Duration: 7.19s
+
+[8] Quiet mode
+    Command: python -m dmlclean --quiet scan
+    ❌ FAIL (exit: 1)
+    Output: +---------------------------- +---------------------------- +---------------------------- 
+    Error: [32m2026-03-14 09:40:28.001[0m | [34m[1mDEBUG   [0m | [36mdmlclean.domain.events[0m:[36msubscribe[0m:[36m304[0m - [34m[1mEventBus: Subscribed handler to CleanOperationCompleted[0m
+[32m2
+    Duration: 7.57s
+
+[9] Basic scan (fast mode)
+    Command: python -m dmlclean scan
+    ❌ FAIL (exit: 1)
+    Output: +---------------------------- +---------------------------- +---------------------------- 
+    Error: [32m2026-03-14 09:40:35.195[0m | [34m[1mDEBUG   [0m | [36mdmlclean.domain.events[0m:[36msubscribe[0m:[36m304[0m - [34m[1mEventBus: Subscribed handler to CleanOperationCompleted[0m
+[32m2
+    Duration: 7.19s
+
+[10] Scan fast mode
+    Command: python -m dmlclean scan --mode fast
+    ❌ FAIL (exit: 1)
+    Output: +---------------------------- +---------------------------- +---------------------------- 
+    Error: [32m2026-03-14 09:40:42.322[0m | [34m[1mDEBUG   [0m | [36mdmlclean.domain.events[0m:[36msubscribe[0m:[36m304[0m - [34m[1mEventBus: Subscribed handler to CleanOperationCompleted[0m
+[32m2
+    Duration: 7.15s
+
+[11] Scan deep mode
+    Command: python -m dmlclean scan --mode deep
+    ❌ FAIL (exit: 1)
+    Output: +---------------------------- +---------------------------- +---------------------------- 
+    Error: [32m2026-03-14 09:40:49.586[0m | [34m[1mDEBUG   [0m | [36mdmlclean.domain.events[0m:[36msubscribe[0m:[36m304[0m - [34m[1mEventBus: Subscribed handler to CleanOperationCompleted[0m
+[32m2
+    Duration: 7.24s
+
+[12] Scan with JSON output
+    Command: python -m dmlclean scan --json
+    ✅ PASS (exit: 0)
+    Duration: 18.02s
+
+[13] Scan specific category
+    Command: python -m dmlclean scan --categories browser
+    ❌ FAIL (exit: 1)
+    Output: +---------------------------- +---------------------------- +---------------------------- 
+    Error: [32m2026-03-14 09:41:14.808[0m | [34m[1mDEBUG   [0m | [36mdmlclean.domain.events[0m:[36msubscribe[0m:[36m304[0m - [34m[1mEventBus: Subscribed handler to CleanOperationCompleted[0m
+[32m2
+    Duration: 7.22s
+
+[14] Scan multiple categories
+    Command: python -m dmlclean scan --categories browser,dev_python
+    ❌ FAIL (exit: 1)
+    Output: +---------------------------- +---------------------------- +---------------------------- 
+    Error: [32m2026-03-14 09:41:22.374[0m | [34m[1mDEBUG   [0m | [36mdmlclean.domain.events[0m:[36msubscribe[0m:[36m304[0m - [34m[1mEventBus: Subscribed handler to CleanOperationCompleted[0m
+[32m2
+    Duration: 7.57s
+
+[15] Scan specific path
+    Command: python -m dmlclean scan --path C:\Users\Santosh\AppData\Local\Temp
+    ❌ FAIL (exit: 1)
+    Output: +---------------------------- +---------------------------- +---------------------------- 
+    Error: [32m2026-03-14 09:41:29.620[0m | [34m[1mDEBUG   [0m | [36mdmlclean.domain.events[0m:[36msubscribe[0m:[36m304[0m - [34m[1mEventBus: Subscribed handler to CleanOperationCompleted[0m
+[32m2
+    Duration: 7.25s
+
+[16] Scan quiet mode
+    Command: python -m dmlclean scan --quiet
+    ✅ PASS (exit: 0)
+    Duration: 19.39s
+
+[17] Scan deep JSON
+    Command: python -m dmlclean scan --mode deep --json
+    ✅ PASS (exit: 0)
+    Duration: 17.44s
+
+[18] Clean dry-run (default)
+    Command: python -m dmlclean clean --mode dry-run
+    ✅ PASS (exit: 0)
+    Duration: 25.75s
+
+[19] Clean trash mode (forced)
+    Command: python -m dmlclean clean --mode trash --force
+    ❌ FAIL (exit: 1)
+    Output: 
+Starting cleaning... Mode=trash
+
+    Error: [32m2026-03-14 09:42:39.322[0m | [34m[1mDEBUG   [0m | [36mdmlclean.domain.events[0m:[36msubscribe[0m:[36m304[0m - [34m[1mEventBus: Subscribed handler to CleanOperationCompleted[0m
+[32m2
+    Duration: 47.08s
+
+[20] Clean with profile
+    Command: python -m dmlclean clean --profile developer --mode dry-run
+    ✅ PASS (exit: 0)
+    Duration: 21.52s
+
+[21] Clean specific category
+    Command: python -m dmlclean clean --categories browser --mode dry-run
+    ✅ PASS (exit: 0)
+    Duration: 28.80s
+
+[22] Clean with age filter
+    Command: python -m dmlclean clean --min-age 7 --mode dry-run
+    ✅ PASS (exit: 0)
+    Duration: 22.20s
+
+[23] Clean with size filter
+    Command: python -m dmlclean clean --min-size 10 --mode dry-run
+    ✅ PASS (exit: 0)
+    Duration: 29.74s
+
+[24] Clean designer profile
+    Command: python -m dmlclean clean --profile designer --mode trash --force
+    ❌ FAIL (exit: 1)
+    Output: 
+Starting cleaning... Mode=trash
+
+    Error: [32m2026-03-14 09:45:08.708[0m | [34m[1mDEBUG   [0m | [36mdmlclean.domain.events[0m:[36msubscribe[0m:[36m304[0m - [34m[1mEventBus: Subscribed handler to CleanOperationCompleted[0m
+[32m2
+    Duration: 38.51s
+
+[25] Clean system-admin profile
+    Command: python -m dmlclean clean --profile system-admin --mode dry-run
+    ✅ PASS (exit: 0)
+    Duration: 19.54s
+
+[26] List protected paths
+    Command: python -m dmlclean protect list
+    ✅ PASS (exit: 0)
+    Duration: 7.11s
+
+[27] Check if path protected
+    Command: python -m dmlclean protect check C:/Windows
+    ❌ FAIL (exit: 2)
+    Output: 
+    Error: [32m2026-03-14 09:46:13.898[0m | [34m[1mDEBUG   [0m | [36mdmlclean.domain.events[0m:[36msubscribe[0m:[36m304[0m - [34m[1mEventBus: Subscribed handler to CleanOperationCompleted[0m
+[32m2
+    Duration: 7.57s
+
+[28] Check temp path protected
+    Command: python -m dmlclean protect check C:\Users\Santosh\AppData\Local\Temp
+    ❌ FAIL (exit: 2)
+    Output: 
+    Error: [32m2026-03-14 09:46:21.398[0m | [34m[1mDEBUG   [0m | [36mdmlclean.domain.events[0m:[36msubscribe[0m:[36m304[0m - [34m[1mEventBus: Subscribed handler to CleanOperationCompleted[0m
+[32m2
+    Duration: 7.45s
+
+[29] List history
+    Command: python -m dmlclean history list
+    ✅ PASS (exit: 0)
+    Duration: 7.14s
+
+[30] List history with limit
+    Command: python -m dmlclean history list --limit 10
+    ✅ PASS (exit: 0)
+    Duration: 7.33s
+
+[31] List history JSON
+    Command: python -m dmlclean history list --json
+    ✅ PASS (exit: 0)
+    Duration: 7.08s
+
+[32] List schedules
+    Command: python -m dmlclean schedule list
+    ❌ FAIL (exit: 1)
+    Output: +-------------------- Unexpected Error: UnboundLocalError --------------------+
+| cannot access local variable 'cursor' where it is not associated with a     |
+| value                                 
+    Error: [32m2026-03-14 09:46:50.931[0m | [34m[1mDEBUG   [0m | [36mdmlclean.domain.events[0m:[36msubscribe[0m:[36m304[0m - [34m[1mEventBus: Subscribed handler to CleanOperationCompleted[0m
+[32m2
+    Duration: 7.52s
+
+[33] List schedules JSON
+    Command: python -m dmlclean schedule list --json
+    ❌ FAIL (exit: 2)
+    Output: 
+    Error: [32m2026-03-14 09:46:57.931[0m | [34m[1mDEBUG   [0m | [36mdmlclean.domain.events[0m:[36msubscribe[0m:[36m304[0m - [34m[1mEventBus: Subscribed handler to CleanOperationCompleted[0m
+[32m2
+    Duration: 7.55s
+
+[34] Show config
+    Command: python -m dmlclean config show
+    ✅ PASS (exit: 0)
+    Duration: 7.17s
+
+[35] Show config JSON
+    Command: python -m dmlclean config show --json
+    ❌ FAIL (exit: 2)
+    Output: 
+    Error: [32m2026-03-14 09:47:12.698[0m | [34m[1mDEBUG   [0m | [36mdmlclean.domain.events[0m:[36msubscribe[0m:[36m304[0m - [34m[1mEventBus: Subscribed handler to CleanOperationCompleted[0m
+[32m2
+    Duration: 7.57s
+
+[36] Validate config
+    Command: python -m dmlclean config validate
+    ❌ FAIL (exit: 1)
+    Output: 
+    Error: [32m2026-03-14 09:47:20.318[0m | [34m[1mDEBUG   [0m | [36mdmlclean.domain.events[0m:[36msubscribe[0m:[36m304[0m - [34m[1mEventBus: Subscribed handler to CleanOperationCompleted[0m
+[32m2
+    Duration: 7.20s
+
+[37] Show last report
+    Command: python -m dmlclean report last
+    ❌ FAIL (exit: 2)
+    Output: 
+    Error: [32m2026-03-14 09:47:27.398[0m | [34m[1mDEBUG   [0m | [36mdmlclean.domain.events[0m:[36msubscribe[0m:[36m304[0m - [34m[1mEventBus: Subscribed handler to CleanOperationCompleted[0m
+[32m2
+    Duration: 7.44s
+
+[38] Last report JSON
+    Command: python -m dmlclean report last --json
+    ❌ FAIL (exit: 2)
+    Output: 
+    Error: [32m2026-03-14 09:47:34.903[0m | [34m[1mDEBUG   [0m | [36mdmlclean.domain.events[0m:[36msubscribe[0m:[36m304[0m - [34m[1mEventBus: Subscribed handler to CleanOperationCompleted[0m
+[32m2
+    Duration: 7.54s
+
+[39] Show trends (default)
+    Command: python -m dmlclean trends
+    ❌ FAIL (exit: 1)
+    Output: DMLClean Disk Usage Trends
+
+ Total:  237.90 GB         
+ Used:   172.07 GB (72.3%) 
+ Free:   65.83 GB          
+
+[
+[
+    Error: [32m2026-03-14 09:47:42.578[0m | [34m[1mDEBUG   [0m | [36mdmlclean.domain.events[0m:[36msubscribe[0m:[36m304[0m - [34m[1mEventBus: Subscribed handler to CleanOperationCompleted[0m
+[32m2
+    Duration: 7.34s
+
+[40] Trends last 7 days
+    Command: python -m dmlclean trends --since 7
+    ❌ FAIL (exit: 1)
+    Output: DMLClean Disk Usage Trends
+
+ Total:  237.90 GB         
+ Used:   172.07 GB (72.3%) 
+ Free:   65.83 GB          
+
+[
+[
+    Error: [32m2026-03-14 09:47:50.096[0m | [34m[1mDEBUG   [0m | [36mdmlclean.domain.events[0m:[36msubscribe[0m:[36m304[0m - [34m[1mEventBus: Subscribed handler to CleanOperationCompleted[0m
+[32m2
+    Duration: 7.46s
+
+[41] Trends last 30 days (--days)
+    Command: python -m dmlclean trends --days 30
+    ❌ FAIL (exit: 1)
+    Output: DMLClean Disk Usage Trends
+
+ Total:  237.90 GB         
+ Used:   172.07 GB (72.3%) 
+ Free:   65.83 GB          
+
+[
+[
+    Error: [32m2026-03-14 09:47:57.229[0m | [34m[1mDEBUG   [0m | [36mdmlclean.domain.events[0m:[36msubscribe[0m:[36m304[0m - [34m[1mEventBus: Subscribed handler to CleanOperationCompleted[0m
+[32m2
+    Duration: 7.15s
+
+[42] Trends JSON
+    Command: python -m dmlclean trends --json
+    ✅ PASS (exit: 0)
+    Duration: 7.19s
+
+[43] List profiles
+    Command: python -m dmlclean profile list
+    ✅ PASS (exit: 0)
+    Duration: 7.05s
+
+[44] Show developer profile
+    Command: python -m dmlclean profile show developer
+    ✅ PASS (exit: 0)
+    Duration: 7.12s
+
+[45] Show designer profile
+    Command: python -m dmlclean profile show designer
+    ✅ PASS (exit: 0)
+    Duration: 7.15s
+
+[46] Show system-admin profile
+    Command: python -m dmlclean profile show system-admin
+    ✅ PASS (exit: 0)
+    Duration: 7.11s
+
+[47] Show gamer profile
+    Command: python -m dmlclean profile show gamer
+    ✅ PASS (exit: 0)
+    Duration: 7.03s
+
+[48] Show minimal profile
+    Command: python -m dmlclean profile show minimal
+    ✅ PASS (exit: 0)
+    Duration: 7.21s
+
+[49] List plugins
+    Command: python -m dmlclean plugin list
+    ❌ FAIL (exit: 1)
+    Output: +-----------------------------------------------------------------------------+
+| Name            | Description                              | Default | Risk |
+|-----------------+---------------------
+    Error: [32m2026-03-14 09:48:54.286[0m | [34m[1mDEBUG   [0m | [36mdmlclean.domain.events[0m:[36msubscribe[0m:[36m304[0m - [34m[1mEventBus: Subscribed handler to CleanOperationCompleted[0m
+[32m2
+    Duration: 7.12s
+
+[50] List plugins JSON
+    Command: python -m dmlclean plugin list --json
+    ✅ PASS (exit: 0)
+    Duration: 6.99s
+
+[51] Plugin info (browser)
+    Command: python -m dmlclean plugin info browser
+    ✅ PASS (exit: 0)
+    Duration: 7.09s
+
+[52] Plugin info (dev_python)
+    Command: python -m dmlclean plugin info dev_python
+    ✅ PASS (exit: 0)
+    Duration: 6.92s
+
+[53] Plugin info (system_junk)
+    Command: python -m dmlclean plugin info system_junk
+    ✅ PASS (exit: 0)
+    Duration: 7.11s
+
+[54] Show storage path (default)
+    Command: python -m dmlclean storage path
+    ❌ FAIL (exit: 1)
+    Output: Base Path:
+C:\Users\Santosh\DML Labs\DML Clean
+
+    Error: [32m2026-03-14 09:49:29.527[0m | [34m[1mDEBUG   [0m | [36mdmlclean.domain.events[0m:[36msubscribe[0m:[36m304[0m - [34m[1mEventBus: Subscribed handler to CleanOperationCompleted[0m
+[32m2
+    Duration: 7.10s
+
+[55] Show base location
+    Command: python -m dmlclean storage path base
+    ❌ FAIL (exit: 1)
+    Output: Base Path:
+C:\Users\Santosh\DML Labs\DML Clean
+
+    Error: [32m2026-03-14 09:49:36.641[0m | [34m[1mDEBUG   [0m | [36mdmlclean.domain.events[0m:[36msubscribe[0m:[36m304[0m - [34m[1mEventBus: Subscribed handler to CleanOperationCompleted[0m
+[32m2
+    Duration: 7.12s
+
+[56] Show config location
+    Command: python -m dmlclean storage path config
+    ❌ FAIL (exit: 1)
+    Output: Config Path:
+C:\Users\Santosh\DML Labs\DML Clean\config
+
+    Error: [32m2026-03-14 09:49:43.749[0m | [34m[1mDEBUG   [0m | [36mdmlclean.domain.events[0m:[36msubscribe[0m:[36m304[0m - [34m[1mEventBus: Subscribed handler to CleanOperationCompleted[0m
+[32m2
+    Duration: 7.37s
+
+[57] Show data location
+    Command: python -m dmlclean storage path data
+    ❌ FAIL (exit: 1)
+    Output: Data Path:
+C:\Users\Santosh\DML Labs\DML Clean\data
+
+    Error: [32m2026-03-14 09:49:51.084[0m | [34m[1mDEBUG   [0m | [36mdmlclean.domain.events[0m:[36msubscribe[0m:[36m304[0m - [34m[1mEventBus: Subscribed handler to CleanOperationCompleted[0m
+[32m2
+    Duration: 7.02s
+
+[58] Show logs location
+    Command: python -m dmlclean storage path logs
+    ❌ FAIL (exit: 1)
+    Output: Logs Path:
+C:\Users\Santosh\DML Labs\DML Clean\logs
+
+    Error: [32m2026-03-14 09:49:58.159[0m | [34m[1mDEBUG   [0m | [36mdmlclean.domain.events[0m:[36msubscribe[0m:[36m304[0m - [34m[1mEventBus: Subscribed handler to CleanOperationCompleted[0m
+[32m2
+    Duration: 7.10s
+
+[59] Show history location
+    Command: python -m dmlclean storage path history
+    ❌ FAIL (exit: 1)
+    Output: History Path:
+C:\Users\Santosh\DML Labs\DML Clean\history
+
+    Error: [32m2026-03-14 09:50:05.410[0m | [34m[1mDEBUG   [0m | [36mdmlclean.domain.events[0m:[36msubscribe[0m:[36m304[0m - [34m[1mEventBus: Subscribed handler to CleanOperationCompleted[0m
+[32m2
+    Duration: 7.25s
+
+[60] System information
+    Command: python -m dmlclean system info
+    ✅ PASS (exit: 0)
+    Duration: 7.18s
+
+[61] System version
+    Command: python -m dmlclean system version
+    ✅ PASS (exit: 0)
+    Duration: 7.16s
+
+[62] Check for updates
+    Command: python -m dmlclean system self-update --check
+    ❌ FAIL (exit: 1)
+    Output: Checking for updates...
+
+    Error: [32m2026-03-14 09:50:26.864[0m | [34m[1mDEBUG   [0m | [36mdmlclean.domain.events[0m:[36msubscribe[0m:[36m304[0m - [34m[1mEventBus: Subscribed handler to CleanOperationCompleted[0m
+[32m2
+    Duration: 10.86s
+
+[63] System diagnostics
+    Command: python -m dmlclean doctor
+    ✅ PASS (exit: 0)
+    Duration: 7.33s
+
+[64] Doctor JSON output
+    Command: python -m dmlclean doctor --json
+    ❌ FAIL (exit: 2)
+    Output: 
+    Error: [32m2026-03-14 09:50:45.286[0m | [34m[1mDEBUG   [0m | [36mdmlclean.domain.events[0m:[36msubscribe[0m:[36m304[0m - [34m[1mEventBus: Subscribed handler to CleanOperationCompleted[0m
+[32m2
+    Duration: 7.78s
+
+[65] Complex scan
+    Command: python -m dmlclean scan --mode deep --categories browser,dev_python,system_junk --json
+    ✅ PASS (exit: 0)
+    Duration: 18.10s
+
+[66] Complex clean
+    Command: python -m dmlclean clean --profile developer --mode dry-run --categories browser --min-age 1
+    ✅ PASS (exit: 0)
+    Duration: 18.72s
+
+[67] Multi-path scan
+    Command: python -m dmlclean scan --mode fast --path C:\Users\Santosh\AppData\Local\Temp --path C:\Windows\Temp --json
+    ✅ PASS (exit: 0)
+    Duration: 21.02s
+
+[68] Complex trash
+    Command: python -m dmlclean clean --mode trash --force --profile system-admin --min-size 5
+    ❌ FAIL (exit: 1)
+    Output: 
+Starting cleaning... Mode=trash
+
+    Error: [32m2026-03-14 09:51:50.605[0m | [34m[1mDEBUG   [0m | [36mdmlclean.domain.events[0m:[36msubscribe[0m:[36m304[0m - [34m[1mEventBus: Subscribed handler to CleanOperationCompleted[0m
+[32m2
+    Duration: 36.59s
+
+[69] Trends with JSON
+    Command: python -m dmlclean trends --since 30 --json
+    ✅ PASS (exit: 0)
+    Duration: 7.26s
+
+[70] Report export
+    Command: python -m dmlclean report export json /tmp/report
+    ❌ FAIL (exit: 1)
+    Output: 
+    Error: [32m2026-03-14 09:52:34.496[0m | [34m[1mDEBUG   [0m | [36mdmlclean.domain.events[0m:[36msubscribe[0m:[36m304[0m - [34m[1mEventBus: Subscribed handler to CleanOperationCompleted[0m
+[32m2
+    Duration: 7.12s
+
+[71] Doctor (no verbose option)
+    Command: python -m dmlclean doctor
+    ✅ PASS (exit: 0)
+    Duration: 7.29s
+
+[72] Config JSON
+    Command: python -m dmlclean config show --json
+    ❌ FAIL (exit: 2)
+    Output: 
+    Error: [32m2026-03-14 09:52:50.000[0m | [34m[1mDEBUG   [0m | [36mdmlclean.domain.events[0m:[36msubscribe[0m:[36m304[0m - [34m[1mEventBus: Subscribed handler to CleanOperationCompleted[0m
+[32m2
+    Duration: 8.60s
+
+[73] Plugin list (no --all option)
+    Command: python -m dmlclean plugin list
+    ❌ FAIL (exit: 1)
+    Output: +-----------------------------------------------------------------------------+
+| Name            | Description                              | Default | Risk |
+|-----------------+---------------------
+    Error: [32m2026-03-14 09:53:01.371[0m | [34m[1mDEBUG   [0m | [36mdmlclean.domain.events[0m:[36msubscribe[0m:[36m304[0m - [34m[1mEventBus: Subscribed handler to CleanOperationCompleted[0m
+[32m2
+    Duration: 11.40s
+
+[74] History large limit
+    Command: python -m dmlclean history list --limit 50 --json
+    ✅ PASS (exit: 0)
+    Duration: 9.68s
+
+[75] Protect list (no JSON option)
+    Command: python -m dmlclean protect list
+    ✅ PASS (exit: 0)
+    Duration: 7.15s
+
+[76] Schedule list (no --all option)
+    Command: python -m dmlclean schedule list
+    ❌ FAIL (exit: 1)
+    Output: +-------------------- Unexpected Error: UnboundLocalError --------------------+
+| cannot access local variable 'cursor' where it is not associated with a     |
+| value                                 
+    Error: [32m2026-03-14 09:53:25.731[0m | [34m[1mDEBUG   [0m | [36mdmlclean.domain.events[0m:[36msubscribe[0m:[36m304[0m - [34m[1mEventBus: Subscribed handler to CleanOperationCompleted[0m
+[32m2
+    Duration: 7.01s
+
+[77] Invalid scan mode (should fail)
+    Command: python -m dmlclean scan --mode invalid
+    ❌ FAIL (exit: 1)
+    Output: Scan failed: 'invalid' is not a valid ScanMode
+
+    Error: [32m2026-03-14 09:53:32.913[0m | [34m[1mDEBUG   [0m | [36mdmlclean.domain.events[0m:[36msubscribe[0m:[36m304[0m - [34m[1mEventBus: Subscribed handler to CleanOperationCompleted[0m
+[32m2
+    Duration: 7.21s
+
+[78] Invalid clean mode (should fail)
+    Command: python -m dmlclean clean --mode invalid
+    ❌ FAIL (exit: 1)
+    Output: Invalid mode: invalid
+
+    Error: [32m2026-03-14 09:53:40.107[0m | [34m[1mDEBUG   [0m | [36mdmlclean.domain.events[0m:[36msubscribe[0m:[36m304[0m - [34m[1mEventBus: Subscribed handler to CleanOperationCompleted[0m
+[32m2
+    Duration: 7.12s
+
+[79] Negative age (should fail)
+    Command: python -m dmlclean clean --min-age -1
+    ❌ FAIL (exit: 1)
+    Output: Invalid parameter: Age cannot be negative: -1
+
+    Error: [32m2026-03-14 09:53:47.380[0m | [34m[1mDEBUG   [0m | [36mdmlclean.domain.events[0m:[36msubscribe[0m:[36m304[0m - [34m[1mEventBus: Subscribed handler to CleanOperationCompleted[0m
+[32m2
+    Duration: 7.26s
+
+[80] Invalid category (should fail)
+    Command: python -m dmlclean scan --categories nonexistent_category
+    ❌ FAIL (exit: 1)
+    Output: +---------------------------- +---------------------------- +---------------------------- 
+    Error: [32m2026-03-14 09:53:54.365[0m | [34m[1mDEBUG   [0m | [36mdmlclean.domain.events[0m:[36msubscribe[0m:[36m304[0m - [34m[1mEventBus: Subscribed handler to CleanOperationCompleted[0m
+[32m2
+    Duration: 7.07s
+
+[81] Invalid profile (should fail)
+    Command: python -m dmlclean profile show invalid_profile
+    ❌ FAIL (exit: 1)
+    Output: Profile not found: invalid_profile
+Available profiles: developer, designer, system-admin, gamer, minimal
+
+    Error: [32m2026-03-14 09:54:01.565[0m | [34m[1mDEBUG   [0m | [36mdmlclean.domain.events[0m:[36msubscribe[0m:[36m304[0m - [34m[1mEventBus: Subscribed handler to CleanOperationCompleted[0m
+[32m2
+    Duration: 7.13s
+
+[82] Invalid plugin (should fail)
+    Command: python -m dmlclean plugin info nonexistent_plugin
+    ❌ FAIL (exit: 1)
+    Output: Plugin not found: nonexistent_plugin
+Available plugins: system_junk, browser, dev_python, dev_node, dev_java, 
+dev_rust_cpp, ide, gaming, media, messaging, ai_ml, cloud_sync, 
+package_manager, smart_s
+    Error: [32m2026-03-14 09:54:08.635[0m | [34m[1mDEBUG   [0m | [36mdmlclean.domain.events[0m:[36msubscribe[0m:[36m304[0m - [34m[1mEventBus: Subscribed handler to CleanOperationCompleted[0m
+[32m2
+    Duration: 7.09s
+
+[83] Invalid location (should fail)
+    Command: python -m dmlclean storage path invalid
+    ❌ FAIL (exit: 1)
+    Output: Invalid location: invalid
+Valid locations: base, config, data, history, logs, cache, manifests, reports, 
+db, config_file, log_file
+
+    Error: [32m2026-03-14 09:54:15.701[0m | [34m[1mDEBUG   [0m | [36mdmlclean.domain.events[0m:[36msubscribe[0m:[36m304[0m - [34m[1mEventBus: Subscribed handler to CleanOperationCompleted[0m
+[32m2
+    Duration: 6.99s
+
+[84] Negative days (should fail)
+    Command: python -m dmlclean trends --since -5
+    ❌ FAIL (exit: 1)
+    Output: DMLClean Disk Usage Trends
+
+ Total:  237.90 GB         
+ Used:   172.07 GB (72.3%) 
+ Free:   65.83 GB          
+
+[
+[
+    Error: [32m2026-03-14 09:54:22.702[0m | [34m[1mDEBUG   [0m | [36mdmlclean.domain.events[0m:[36msubscribe[0m:[36m304[0m - [34m[1mEventBus: Subscribed handler to CleanOperationCompleted[0m
+[32m2
+    Duration: 7.22s
+
+[85] Zero limit (should fail)
+    Command: python -m dmlclean history list --limit 0
+    ❌ FAIL (exit: 1)
+    Output: Error: --limit must be between 1 and 100.
+
+    Error: [32m2026-03-14 09:54:29.927[0m | [34m[1mDEBUG   [0m | [36mdmlclean.domain.events[0m:[36msubscribe[0m:[36m304[0m - [34m[1mEventBus: Subscribed handler to CleanOperationCompleted[0m
+[32m2
+    Duration: 7.00s
+
+[86] Extreme limit (should fail)
+    Command: python -m dmlclean history list --limit 9999
+    ❌ FAIL (exit: 1)
+    Output: Error: --limit must be between 1 and 100.
+
+    Error: [32m2026-03-14 09:54:37.132[0m | [34m[1mDEBUG   [0m | [36mdmlclean.domain.events[0m:[36msubscribe[0m:[36m304[0m - [34m[1mEventBus: Subscribed handler to CleanOperationCompleted[0m
+[32m2
+    Duration: 7.24s
+
+[87] Negative size (should fail)
+    Command: python -m dmlclean clean --min-size -100
+    ❌ FAIL (exit: 1)
+    Output: Invalid parameter: Size cannot be negative: -100
+
+    Error: [32m2026-03-14 09:54:46.365[0m | [34m[1mDEBUG   [0m | [36mdmlclean.domain.events[0m:[36msubscribe[0m:[36m304[0m - [34m[1mEventBus: Subscribed handler to CleanOperationCompleted[0m
+[32m2
+    Duration: 10.21s
+
+[88] Negative days via --days (should fail)
+    Command: python -m dmlclean trends --days -10
+    ❌ FAIL (exit: 1)
+    Output: DMLClean Disk Usage Trends
+
+ Total:  237.90 GB         
+ Used:   172.07 GB (72.3%) 
+ Free:   65.83 GB          
+
+[
+[
+    Error: [32m2026-03-14 09:55:01.584[0m | [34m[1mDEBUG   [0m | [36mdmlclean.domain.events[0m:[36msubscribe[0m:[36m304[0m - [34m[1mEventBus: Subscribed handler to CleanOperationCompleted[0m
+[32m2
+    Duration: 14.65s
+
+
+======================================================================
+TEST SUMMARY
+======================================================================
+Total: 88
+Passed: 41
+Failed: 47
+Pass Rate: 46.6%
+Completed: 2026-03-14T09:55:03.602772
+
+======================================================================
+FAILED COMMANDS
+======================================================================
+
+[7] Verbose mode
+    Command: python -m dmlclean --verbose scan
+    Exit Code: 1
+    Error: [32m2026-03-14 09:40:20.433[0m | [34m[1mDEBUG   [0m | [36mdmlclean.domain.events[0m:[36msubscribe[0m:[36m304[0m - [34m[1mEventBus: Subscribed handler to CleanOperationCompleted[0m
+[32m2026-03-14 09:40:20.434[0m | [34m[1mDEBUG   [0m | [36mdmlclean.domain.events[0m:[36mdecorator[0m:[36m443[0m - [34m[1mRegistered event handler for CleanOperationCompleted[0m
+[32m2026-03-14 09:40:20.434[0m | [34m[1mDEBUG   [0m | [36mdmlclean.domain.events[0m:[36msubscribe[0m:[36m
+
+[8] Quiet mode
+    Command: python -m dmlclean --quiet scan
+    Exit Code: 1
+    Error: [32m2026-03-14 09:40:28.001[0m | [34m[1mDEBUG   [0m | [36mdmlclean.domain.events[0m:[36msubscribe[0m:[36m304[0m - [34m[1mEventBus: Subscribed handler to CleanOperationCompleted[0m
+[32m2026-03-14 09:40:28.002[0m | [34m[1mDEBUG   [0m | [36mdmlclean.domain.events[0m:[36mdecorator[0m:[36m443[0m - [34m[1mRegistered event handler for CleanOperationCompleted[0m
+[32m2026-03-14 09:40:28.002[0m | [34m[1mDEBUG   [0m | [36mdmlclean.domain.events[0m:[36msubscribe[0m:[36m
+
+[9] Basic scan (fast mode)
+    Command: python -m dmlclean scan
+    Exit Code: 1
+    Error: [32m2026-03-14 09:40:35.195[0m | [34m[1mDEBUG   [0m | [36mdmlclean.domain.events[0m:[36msubscribe[0m:[36m304[0m - [34m[1mEventBus: Subscribed handler to CleanOperationCompleted[0m
+[32m2026-03-14 09:40:35.195[0m | [34m[1mDEBUG   [0m | [36mdmlclean.domain.events[0m:[36mdecorator[0m:[36m443[0m - [34m[1mRegistered event handler for CleanOperationCompleted[0m
+[32m2026-03-14 09:40:35.196[0m | [34m[1mDEBUG   [0m | [36mdmlclean.domain.events[0m:[36msubscribe[0m:[36m
+
+[10] Scan fast mode
+    Command: python -m dmlclean scan --mode fast
+    Exit Code: 1
+    Error: [32m2026-03-14 09:40:42.322[0m | [34m[1mDEBUG   [0m | [36mdmlclean.domain.events[0m:[36msubscribe[0m:[36m304[0m - [34m[1mEventBus: Subscribed handler to CleanOperationCompleted[0m
+[32m2026-03-14 09:40:42.323[0m | [34m[1mDEBUG   [0m | [36mdmlclean.domain.events[0m:[36mdecorator[0m:[36m443[0m - [34m[1mRegistered event handler for CleanOperationCompleted[0m
+[32m2026-03-14 09:40:42.324[0m | [34m[1mDEBUG   [0m | [36mdmlclean.domain.events[0m:[36msubscribe[0m:[36m
+
+[11] Scan deep mode
+    Command: python -m dmlclean scan --mode deep
+    Exit Code: 1
+    Error: [32m2026-03-14 09:40:49.586[0m | [34m[1mDEBUG   [0m | [36mdmlclean.domain.events[0m:[36msubscribe[0m:[36m304[0m - [34m[1mEventBus: Subscribed handler to CleanOperationCompleted[0m
+[32m2026-03-14 09:40:49.587[0m | [34m[1mDEBUG   [0m | [36mdmlclean.domain.events[0m:[36mdecorator[0m:[36m443[0m - [34m[1mRegistered event handler for CleanOperationCompleted[0m
+[32m2026-03-14 09:40:49.588[0m | [34m[1mDEBUG   [0m | [36mdmlclean.domain.events[0m:[36msubscribe[0m:[36m
+
+[13] Scan specific category
+    Command: python -m dmlclean scan --categories browser
+    Exit Code: 1
+    Error: [32m2026-03-14 09:41:14.808[0m | [34m[1mDEBUG   [0m | [36mdmlclean.domain.events[0m:[36msubscribe[0m:[36m304[0m - [34m[1mEventBus: Subscribed handler to CleanOperationCompleted[0m
+[32m2026-03-14 09:41:14.811[0m | [34m[1mDEBUG   [0m | [36mdmlclean.domain.events[0m:[36mdecorator[0m:[36m443[0m - [34m[1mRegistered event handler for CleanOperationCompleted[0m
+[32m2026-03-14 09:41:14.812[0m | [34m[1mDEBUG   [0m | [36mdmlclean.domain.events[0m:[36msubscribe[0m:[36m
+
+[14] Scan multiple categories
+    Command: python -m dmlclean scan --categories browser,dev_python
+    Exit Code: 1
+    Error: [32m2026-03-14 09:41:22.374[0m | [34m[1mDEBUG   [0m | [36mdmlclean.domain.events[0m:[36msubscribe[0m:[36m304[0m - [34m[1mEventBus: Subscribed handler to CleanOperationCompleted[0m
+[32m2026-03-14 09:41:22.376[0m | [34m[1mDEBUG   [0m | [36mdmlclean.domain.events[0m:[36mdecorator[0m:[36m443[0m - [34m[1mRegistered event handler for CleanOperationCompleted[0m
+[32m2026-03-14 09:41:22.376[0m | [34m[1mDEBUG   [0m | [36mdmlclean.domain.events[0m:[36msubscribe[0m:[36m
+
+[15] Scan specific path
+    Command: python -m dmlclean scan --path C:\Users\Santosh\AppData\Local\Temp
+    Exit Code: 1
+    Error: [32m2026-03-14 09:41:29.620[0m | [34m[1mDEBUG   [0m | [36mdmlclean.domain.events[0m:[36msubscribe[0m:[36m304[0m - [34m[1mEventBus: Subscribed handler to CleanOperationCompleted[0m
+[32m2026-03-14 09:41:29.621[0m | [34m[1mDEBUG   [0m | [36mdmlclean.domain.events[0m:[36mdecorator[0m:[36m443[0m - [34m[1mRegistered event handler for CleanOperationCompleted[0m
+[32m2026-03-14 09:41:29.622[0m | [34m[1mDEBUG   [0m | [36mdmlclean.domain.events[0m:[36msubscribe[0m:[36m
+
+[19] Clean trash mode (forced)
+    Command: python -m dmlclean clean --mode trash --force
+    Exit Code: 1
+    Error: [32m2026-03-14 09:42:39.322[0m | [34m[1mDEBUG   [0m | [36mdmlclean.domain.events[0m:[36msubscribe[0m:[36m304[0m - [34m[1mEventBus: Subscribed handler to CleanOperationCompleted[0m
+[32m2026-03-14 09:42:39.322[0m | [34m[1mDEBUG   [0m | [36mdmlclean.domain.events[0m:[36mdecorator[0m:[36m443[0m - [34m[1mRegistered event handler for CleanOperationCompleted[0m
+[32m2026-03-14 09:42:39.323[0m | [34m[1mDEBUG   [0m | [36mdmlclean.domain.events[0m:[36msubscribe[0m:[36m
+
+[24] Clean designer profile
+    Command: python -m dmlclean clean --profile designer --mode trash --force
+    Exit Code: 1
+    Error: [32m2026-03-14 09:45:08.708[0m | [34m[1mDEBUG   [0m | [36mdmlclean.domain.events[0m:[36msubscribe[0m:[36m304[0m - [34m[1mEventBus: Subscribed handler to CleanOperationCompleted[0m
+[32m2026-03-14 09:45:08.709[0m | [34m[1mDEBUG   [0m | [36mdmlclean.domain.events[0m:[36mdecorator[0m:[36m443[0m - [34m[1mRegistered event handler for CleanOperationCompleted[0m
+[32m2026-03-14 09:45:08.709[0m | [34m[1mDEBUG   [0m | [36mdmlclean.domain.events[0m:[36msubscribe[0m:[36m
+
+[27] Check if path protected
+    Command: python -m dmlclean protect check C:/Windows
+    Exit Code: 2
+    Error: [32m2026-03-14 09:46:13.898[0m | [34m[1mDEBUG   [0m | [36mdmlclean.domain.events[0m:[36msubscribe[0m:[36m304[0m - [34m[1mEventBus: Subscribed handler to CleanOperationCompleted[0m
+[32m2026-03-14 09:46:13.899[0m | [34m[1mDEBUG   [0m | [36mdmlclean.domain.events[0m:[36mdecorator[0m:[36m443[0m - [34m[1mRegistered event handler for CleanOperationCompleted[0m
+[32m2026-03-14 09:46:13.900[0m | [34m[1mDEBUG   [0m | [36mdmlclean.domain.events[0m:[36msubscribe[0m:[36m
+
+[28] Check temp path protected
+    Command: python -m dmlclean protect check C:\Users\Santosh\AppData\Local\Temp
+    Exit Code: 2
+    Error: [32m2026-03-14 09:46:21.398[0m | [34m[1mDEBUG   [0m | [36mdmlclean.domain.events[0m:[36msubscribe[0m:[36m304[0m - [34m[1mEventBus: Subscribed handler to CleanOperationCompleted[0m
+[32m2026-03-14 09:46:21.399[0m | [34m[1mDEBUG   [0m | [36mdmlclean.domain.events[0m:[36mdecorator[0m:[36m443[0m - [34m[1mRegistered event handler for CleanOperationCompleted[0m
+[32m2026-03-14 09:46:21.399[0m | [34m[1mDEBUG   [0m | [36mdmlclean.domain.events[0m:[36msubscribe[0m:[36m
+
+[32] List schedules
+    Command: python -m dmlclean schedule list
+    Exit Code: 1
+    Error: [32m2026-03-14 09:46:50.931[0m | [34m[1mDEBUG   [0m | [36mdmlclean.domain.events[0m:[36msubscribe[0m:[36m304[0m - [34m[1mEventBus: Subscribed handler to CleanOperationCompleted[0m
+[32m2026-03-14 09:46:50.932[0m | [34m[1mDEBUG   [0m | [36mdmlclean.domain.events[0m:[36mdecorator[0m:[36m443[0m - [34m[1mRegistered event handler for CleanOperationCompleted[0m
+[32m2026-03-14 09:46:50.932[0m | [34m[1mDEBUG   [0m | [36mdmlclean.domain.events[0m:[36msubscribe[0m:[36m
+
+[33] List schedules JSON
+    Command: python -m dmlclean schedule list --json
+    Exit Code: 2
+    Error: [32m2026-03-14 09:46:57.931[0m | [34m[1mDEBUG   [0m | [36mdmlclean.domain.events[0m:[36msubscribe[0m:[36m304[0m - [34m[1mEventBus: Subscribed handler to CleanOperationCompleted[0m
+[32m2026-03-14 09:46:57.932[0m | [34m[1mDEBUG   [0m | [36mdmlclean.domain.events[0m:[36mdecorator[0m:[36m443[0m - [34m[1mRegistered event handler for CleanOperationCompleted[0m
+[32m2026-03-14 09:46:57.932[0m | [34m[1mDEBUG   [0m | [36mdmlclean.domain.events[0m:[36msubscribe[0m:[36m
+
+[35] Show config JSON
+    Command: python -m dmlclean config show --json
+    Exit Code: 2
+    Error: [32m2026-03-14 09:47:12.698[0m | [34m[1mDEBUG   [0m | [36mdmlclean.domain.events[0m:[36msubscribe[0m:[36m304[0m - [34m[1mEventBus: Subscribed handler to CleanOperationCompleted[0m
+[32m2026-03-14 09:47:12.699[0m | [34m[1mDEBUG   [0m | [36mdmlclean.domain.events[0m:[36mdecorator[0m:[36m443[0m - [34m[1mRegistered event handler for CleanOperationCompleted[0m
+[32m2026-03-14 09:47:12.700[0m | [34m[1mDEBUG   [0m | [36mdmlclean.domain.events[0m:[36msubscribe[0m:[36m
+
+[36] Validate config
+    Command: python -m dmlclean config validate
+    Exit Code: 1
+    Error: [32m2026-03-14 09:47:20.318[0m | [34m[1mDEBUG   [0m | [36mdmlclean.domain.events[0m:[36msubscribe[0m:[36m304[0m - [34m[1mEventBus: Subscribed handler to CleanOperationCompleted[0m
+[32m2026-03-14 09:47:20.319[0m | [34m[1mDEBUG   [0m | [36mdmlclean.domain.events[0m:[36mdecorator[0m:[36m443[0m - [34m[1mRegistered event handler for CleanOperationCompleted[0m
+[32m2026-03-14 09:47:20.319[0m | [34m[1mDEBUG   [0m | [36mdmlclean.domain.events[0m:[36msubscribe[0m:[36m
+
+[37] Show last report
+    Command: python -m dmlclean report last
+    Exit Code: 2
+    Error: [32m2026-03-14 09:47:27.398[0m | [34m[1mDEBUG   [0m | [36mdmlclean.domain.events[0m:[36msubscribe[0m:[36m304[0m - [34m[1mEventBus: Subscribed handler to CleanOperationCompleted[0m
+[32m2026-03-14 09:47:27.399[0m | [34m[1mDEBUG   [0m | [36mdmlclean.domain.events[0m:[36mdecorator[0m:[36m443[0m - [34m[1mRegistered event handler for CleanOperationCompleted[0m
+[32m2026-03-14 09:47:27.399[0m | [34m[1mDEBUG   [0m | [36mdmlclean.domain.events[0m:[36msubscribe[0m:[36m
+
+[38] Last report JSON
+    Command: python -m dmlclean report last --json
+    Exit Code: 2
+    Error: [32m2026-03-14 09:47:34.903[0m | [34m[1mDEBUG   [0m | [36mdmlclean.domain.events[0m:[36msubscribe[0m:[36m304[0m - [34m[1mEventBus: Subscribed handler to CleanOperationCompleted[0m
+[32m2026-03-14 09:47:34.904[0m | [34m[1mDEBUG   [0m | [36mdmlclean.domain.events[0m:[36mdecorator[0m:[36m443[0m - [34m[1mRegistered event handler for CleanOperationCompleted[0m
+[32m2026-03-14 09:47:34.904[0m | [34m[1mDEBUG   [0m | [36mdmlclean.domain.events[0m:[36msubscribe[0m:[36m
+
+[39] Show trends (default)
+    Command: python -m dmlclean trends
+    Exit Code: 1
+    Error: [32m2026-03-14 09:47:42.578[0m | [34m[1mDEBUG   [0m | [36mdmlclean.domain.events[0m:[36msubscribe[0m:[36m304[0m - [34m[1mEventBus: Subscribed handler to CleanOperationCompleted[0m
+[32m2026-03-14 09:47:42.579[0m | [34m[1mDEBUG   [0m | [36mdmlclean.domain.events[0m:[36mdecorator[0m:[36m443[0m - [34m[1mRegistered event handler for CleanOperationCompleted[0m
+[32m2026-03-14 09:47:42.579[0m | [34m[1mDEBUG   [0m | [36mdmlclean.domain.events[0m:[36msubscribe[0m:[36m
+
+[40] Trends last 7 days
+    Command: python -m dmlclean trends --since 7
+    Exit Code: 1
+    Error: [32m2026-03-14 09:47:50.096[0m | [34m[1mDEBUG   [0m | [36mdmlclean.domain.events[0m:[36msubscribe[0m:[36m304[0m - [34m[1mEventBus: Subscribed handler to CleanOperationCompleted[0m
+[32m2026-03-14 09:47:50.097[0m | [34m[1mDEBUG   [0m | [36mdmlclean.domain.events[0m:[36mdecorator[0m:[36m443[0m - [34m[1mRegistered event handler for CleanOperationCompleted[0m
+[32m2026-03-14 09:47:50.097[0m | [34m[1mDEBUG   [0m | [36mdmlclean.domain.events[0m:[36msubscribe[0m:[36m
+
+[41] Trends last 30 days (--days)
+    Command: python -m dmlclean trends --days 30
+    Exit Code: 1
+    Error: [32m2026-03-14 09:47:57.229[0m | [34m[1mDEBUG   [0m | [36mdmlclean.domain.events[0m:[36msubscribe[0m:[36m304[0m - [34m[1mEventBus: Subscribed handler to CleanOperationCompleted[0m
+[32m2026-03-14 09:47:57.230[0m | [34m[1mDEBUG   [0m | [36mdmlclean.domain.events[0m:[36mdecorator[0m:[36m443[0m - [34m[1mRegistered event handler for CleanOperationCompleted[0m
+[32m2026-03-14 09:47:57.230[0m | [34m[1mDEBUG   [0m | [36mdmlclean.domain.events[0m:[36msubscribe[0m:[36m
+
+[49] List plugins
+    Command: python -m dmlclean plugin list
+    Exit Code: 1
+    Error: [32m2026-03-14 09:48:54.286[0m | [34m[1mDEBUG   [0m | [36mdmlclean.domain.events[0m:[36msubscribe[0m:[36m304[0m - [34m[1mEventBus: Subscribed handler to CleanOperationCompleted[0m
+[32m2026-03-14 09:48:54.286[0m | [34m[1mDEBUG   [0m | [36mdmlclean.domain.events[0m:[36mdecorator[0m:[36m443[0m - [34m[1mRegistered event handler for CleanOperationCompleted[0m
+[32m2026-03-14 09:48:54.287[0m | [34m[1mDEBUG   [0m | [36mdmlclean.domain.events[0m:[36msubscribe[0m:[36m
+
+[54] Show storage path (default)
+    Command: python -m dmlclean storage path
+    Exit Code: 1
+    Error: [32m2026-03-14 09:49:29.527[0m | [34m[1mDEBUG   [0m | [36mdmlclean.domain.events[0m:[36msubscribe[0m:[36m304[0m - [34m[1mEventBus: Subscribed handler to CleanOperationCompleted[0m
+[32m2026-03-14 09:49:29.528[0m | [34m[1mDEBUG   [0m | [36mdmlclean.domain.events[0m:[36mdecorator[0m:[36m443[0m - [34m[1mRegistered event handler for CleanOperationCompleted[0m
+[32m2026-03-14 09:49:29.528[0m | [34m[1mDEBUG   [0m | [36mdmlclean.domain.events[0m:[36msubscribe[0m:[36m
+
+[55] Show base location
+    Command: python -m dmlclean storage path base
+    Exit Code: 1
+    Error: [32m2026-03-14 09:49:36.641[0m | [34m[1mDEBUG   [0m | [36mdmlclean.domain.events[0m:[36msubscribe[0m:[36m304[0m - [34m[1mEventBus: Subscribed handler to CleanOperationCompleted[0m
+[32m2026-03-14 09:49:36.642[0m | [34m[1mDEBUG   [0m | [36mdmlclean.domain.events[0m:[36mdecorator[0m:[36m443[0m - [34m[1mRegistered event handler for CleanOperationCompleted[0m
+[32m2026-03-14 09:49:36.642[0m | [34m[1mDEBUG   [0m | [36mdmlclean.domain.events[0m:[36msubscribe[0m:[36m
+
+[56] Show config location
+    Command: python -m dmlclean storage path config
+    Exit Code: 1
+    Error: [32m2026-03-14 09:49:43.749[0m | [34m[1mDEBUG   [0m | [36mdmlclean.domain.events[0m:[36msubscribe[0m:[36m304[0m - [34m[1mEventBus: Subscribed handler to CleanOperationCompleted[0m
+[32m2026-03-14 09:49:43.752[0m | [34m[1mDEBUG   [0m | [36mdmlclean.domain.events[0m:[36mdecorator[0m:[36m443[0m - [34m[1mRegistered event handler for CleanOperationCompleted[0m
+[32m2026-03-14 09:49:43.752[0m | [34m[1mDEBUG   [0m | [36mdmlclean.domain.events[0m:[36msubscribe[0m:[36m
+
+[57] Show data location
+    Command: python -m dmlclean storage path data
+    Exit Code: 1
+    Error: [32m2026-03-14 09:49:51.084[0m | [34m[1mDEBUG   [0m | [36mdmlclean.domain.events[0m:[36msubscribe[0m:[36m304[0m - [34m[1mEventBus: Subscribed handler to CleanOperationCompleted[0m
+[32m2026-03-14 09:49:51.084[0m | [34m[1mDEBUG   [0m | [36mdmlclean.domain.events[0m:[36mdecorator[0m:[36m443[0m - [34m[1mRegistered event handler for CleanOperationCompleted[0m
+[32m2026-03-14 09:49:51.085[0m | [34m[1mDEBUG   [0m | [36mdmlclean.domain.events[0m:[36msubscribe[0m:[36m
+
+[58] Show logs location
+    Command: python -m dmlclean storage path logs
+    Exit Code: 1
+    Error: [32m2026-03-14 09:49:58.159[0m | [34m[1mDEBUG   [0m | [36mdmlclean.domain.events[0m:[36msubscribe[0m:[36m304[0m - [34m[1mEventBus: Subscribed handler to CleanOperationCompleted[0m
+[32m2026-03-14 09:49:58.160[0m | [34m[1mDEBUG   [0m | [36mdmlclean.domain.events[0m:[36mdecorator[0m:[36m443[0m - [34m[1mRegistered event handler for CleanOperationCompleted[0m
+[32m2026-03-14 09:49:58.162[0m | [34m[1mDEBUG   [0m | [36mdmlclean.domain.events[0m:[36msubscribe[0m:[36m
+
+[59] Show history location
+    Command: python -m dmlclean storage path history
+    Exit Code: 1
+    Error: [32m2026-03-14 09:50:05.410[0m | [34m[1mDEBUG   [0m | [36mdmlclean.domain.events[0m:[36msubscribe[0m:[36m304[0m - [34m[1mEventBus: Subscribed handler to CleanOperationCompleted[0m
+[32m2026-03-14 09:50:05.411[0m | [34m[1mDEBUG   [0m | [36mdmlclean.domain.events[0m:[36mdecorator[0m:[36m443[0m - [34m[1mRegistered event handler for CleanOperationCompleted[0m
+[32m2026-03-14 09:50:05.411[0m | [34m[1mDEBUG   [0m | [36mdmlclean.domain.events[0m:[36msubscribe[0m:[36m
+
+[62] Check for updates
+    Command: python -m dmlclean system self-update --check
+    Exit Code: 1
+    Error: [32m2026-03-14 09:50:26.864[0m | [34m[1mDEBUG   [0m | [36mdmlclean.domain.events[0m:[36msubscribe[0m:[36m304[0m - [34m[1mEventBus: Subscribed handler to CleanOperationCompleted[0m
+[32m2026-03-14 09:50:26.868[0m | [34m[1mDEBUG   [0m | [36mdmlclean.domain.events[0m:[36mdecorator[0m:[36m443[0m - [34m[1mRegistered event handler for CleanOperationCompleted[0m
+[32m2026-03-14 09:50:26.868[0m | [34m[1mDEBUG   [0m | [36mdmlclean.domain.events[0m:[36msubscribe[0m:[36m
+
+[64] Doctor JSON output
+    Command: python -m dmlclean doctor --json
+    Exit Code: 2
+    Error: [32m2026-03-14 09:50:45.286[0m | [34m[1mDEBUG   [0m | [36mdmlclean.domain.events[0m:[36msubscribe[0m:[36m304[0m - [34m[1mEventBus: Subscribed handler to CleanOperationCompleted[0m
+[32m2026-03-14 09:50:45.286[0m | [34m[1mDEBUG   [0m | [36mdmlclean.domain.events[0m:[36mdecorator[0m:[36m443[0m - [34m[1mRegistered event handler for CleanOperationCompleted[0m
+[32m2026-03-14 09:50:45.287[0m | [34m[1mDEBUG   [0m | [36mdmlclean.domain.events[0m:[36msubscribe[0m:[36m
+
+[68] Complex trash
+    Command: python -m dmlclean clean --mode trash --force --profile system-admin --min-size 5
+    Exit Code: 1
+    Error: [32m2026-03-14 09:51:50.605[0m | [34m[1mDEBUG   [0m | [36mdmlclean.domain.events[0m:[36msubscribe[0m:[36m304[0m - [34m[1mEventBus: Subscribed handler to CleanOperationCompleted[0m
+[32m2026-03-14 09:51:50.606[0m | [34m[1mDEBUG   [0m | [36mdmlclean.domain.events[0m:[36mdecorator[0m:[36m443[0m - [34m[1mRegistered event handler for CleanOperationCompleted[0m
+[32m2026-03-14 09:51:50.606[0m | [34m[1mDEBUG   [0m | [36mdmlclean.domain.events[0m:[36msubscribe[0m:[36m
+
+[70] Report export
+    Command: python -m dmlclean report export json /tmp/report
+    Exit Code: 1
+    Error: [32m2026-03-14 09:52:34.496[0m | [34m[1mDEBUG   [0m | [36mdmlclean.domain.events[0m:[36msubscribe[0m:[36m304[0m - [34m[1mEventBus: Subscribed handler to CleanOperationCompleted[0m
+[32m2026-03-14 09:52:34.496[0m | [34m[1mDEBUG   [0m | [36mdmlclean.domain.events[0m:[36mdecorator[0m:[36m443[0m - [34m[1mRegistered event handler for CleanOperationCompleted[0m
+[32m2026-03-14 09:52:34.497[0m | [34m[1mDEBUG   [0m | [36mdmlclean.domain.events[0m:[36msubscribe[0m:[36m
+
+[72] Config JSON
+    Command: python -m dmlclean config show --json
+    Exit Code: 2
+    Error: [32m2026-03-14 09:52:50.000[0m | [34m[1mDEBUG   [0m | [36mdmlclean.domain.events[0m:[36msubscribe[0m:[36m304[0m - [34m[1mEventBus: Subscribed handler to CleanOperationCompleted[0m
+[32m2026-03-14 09:52:50.001[0m | [34m[1mDEBUG   [0m | [36mdmlclean.domain.events[0m:[36mdecorator[0m:[36m443[0m - [34m[1mRegistered event handler for CleanOperationCompleted[0m
+[32m2026-03-14 09:52:50.002[0m | [34m[1mDEBUG   [0m | [36mdmlclean.domain.events[0m:[36msubscribe[0m:[36m
+
+[73] Plugin list (no --all option)
+    Command: python -m dmlclean plugin list
+    Exit Code: 1
+    Error: [32m2026-03-14 09:53:01.371[0m | [34m[1mDEBUG   [0m | [36mdmlclean.domain.events[0m:[36msubscribe[0m:[36m304[0m - [34m[1mEventBus: Subscribed handler to CleanOperationCompleted[0m
+[32m2026-03-14 09:53:01.372[0m | [34m[1mDEBUG   [0m | [36mdmlclean.domain.events[0m:[36mdecorator[0m:[36m443[0m - [34m[1mRegistered event handler for CleanOperationCompleted[0m
+[32m2026-03-14 09:53:01.372[0m | [34m[1mDEBUG   [0m | [36mdmlclean.domain.events[0m:[36msubscribe[0m:[36m
+
+[76] Schedule list (no --all option)
+    Command: python -m dmlclean schedule list
+    Exit Code: 1
+    Error: [32m2026-03-14 09:53:25.731[0m | [34m[1mDEBUG   [0m | [36mdmlclean.domain.events[0m:[36msubscribe[0m:[36m304[0m - [34m[1mEventBus: Subscribed handler to CleanOperationCompleted[0m
+[32m2026-03-14 09:53:25.732[0m | [34m[1mDEBUG   [0m | [36mdmlclean.domain.events[0m:[36mdecorator[0m:[36m443[0m - [34m[1mRegistered event handler for CleanOperationCompleted[0m
+[32m2026-03-14 09:53:25.732[0m | [34m[1mDEBUG   [0m | [36mdmlclean.domain.events[0m:[36msubscribe[0m:[36m
+
+[77] Invalid scan mode (should fail)
+    Command: python -m dmlclean scan --mode invalid
+    Exit Code: 1
+    Error: [32m2026-03-14 09:53:32.913[0m | [34m[1mDEBUG   [0m | [36mdmlclean.domain.events[0m:[36msubscribe[0m:[36m304[0m - [34m[1mEventBus: Subscribed handler to CleanOperationCompleted[0m
+[32m2026-03-14 09:53:32.914[0m | [34m[1mDEBUG   [0m | [36mdmlclean.domain.events[0m:[36mdecorator[0m:[36m443[0m - [34m[1mRegistered event handler for CleanOperationCompleted[0m
+[32m2026-03-14 09:53:32.915[0m | [34m[1mDEBUG   [0m | [36mdmlclean.domain.events[0m:[36msubscribe[0m:[36m
+
+[78] Invalid clean mode (should fail)
+    Command: python -m dmlclean clean --mode invalid
+    Exit Code: 1
+    Error: [32m2026-03-14 09:53:40.107[0m | [34m[1mDEBUG   [0m | [36mdmlclean.domain.events[0m:[36msubscribe[0m:[36m304[0m - [34m[1mEventBus: Subscribed handler to CleanOperationCompleted[0m
+[32m2026-03-14 09:53:40.108[0m | [34m[1mDEBUG   [0m | [36mdmlclean.domain.events[0m:[36mdecorator[0m:[36m443[0m - [34m[1mRegistered event handler for CleanOperationCompleted[0m
+[32m2026-03-14 09:53:40.108[0m | [34m[1mDEBUG   [0m | [36mdmlclean.domain.events[0m:[36msubscribe[0m:[36m
+
+[79] Negative age (should fail)
+    Command: python -m dmlclean clean --min-age -1
+    Exit Code: 1
+    Error: [32m2026-03-14 09:53:47.380[0m | [34m[1mDEBUG   [0m | [36mdmlclean.domain.events[0m:[36msubscribe[0m:[36m304[0m - [34m[1mEventBus: Subscribed handler to CleanOperationCompleted[0m
+[32m2026-03-14 09:53:47.381[0m | [34m[1mDEBUG   [0m | [36mdmlclean.domain.events[0m:[36mdecorator[0m:[36m443[0m - [34m[1mRegistered event handler for CleanOperationCompleted[0m
+[32m2026-03-14 09:53:47.381[0m | [34m[1mDEBUG   [0m | [36mdmlclean.domain.events[0m:[36msubscribe[0m:[36m
+
+[80] Invalid category (should fail)
+    Command: python -m dmlclean scan --categories nonexistent_category
+    Exit Code: 1
+    Error: [32m2026-03-14 09:53:54.365[0m | [34m[1mDEBUG   [0m | [36mdmlclean.domain.events[0m:[36msubscribe[0m:[36m304[0m - [34m[1mEventBus: Subscribed handler to CleanOperationCompleted[0m
+[32m2026-03-14 09:53:54.366[0m | [34m[1mDEBUG   [0m | [36mdmlclean.domain.events[0m:[36mdecorator[0m:[36m443[0m - [34m[1mRegistered event handler for CleanOperationCompleted[0m
+[32m2026-03-14 09:53:54.366[0m | [34m[1mDEBUG   [0m | [36mdmlclean.domain.events[0m:[36msubscribe[0m:[36m
+
+[81] Invalid profile (should fail)
+    Command: python -m dmlclean profile show invalid_profile
+    Exit Code: 1
+    Error: [32m2026-03-14 09:54:01.565[0m | [34m[1mDEBUG   [0m | [36mdmlclean.domain.events[0m:[36msubscribe[0m:[36m304[0m - [34m[1mEventBus: Subscribed handler to CleanOperationCompleted[0m
+[32m2026-03-14 09:54:01.566[0m | [34m[1mDEBUG   [0m | [36mdmlclean.domain.events[0m:[36mdecorator[0m:[36m443[0m - [34m[1mRegistered event handler for CleanOperationCompleted[0m
+[32m2026-03-14 09:54:01.566[0m | [34m[1mDEBUG   [0m | [36mdmlclean.domain.events[0m:[36msubscribe[0m:[36m
+
+[82] Invalid plugin (should fail)
+    Command: python -m dmlclean plugin info nonexistent_plugin
+    Exit Code: 1
+    Error: [32m2026-03-14 09:54:08.635[0m | [34m[1mDEBUG   [0m | [36mdmlclean.domain.events[0m:[36msubscribe[0m:[36m304[0m - [34m[1mEventBus: Subscribed handler to CleanOperationCompleted[0m
+[32m2026-03-14 09:54:08.636[0m | [34m[1mDEBUG   [0m | [36mdmlclean.domain.events[0m:[36mdecorator[0m:[36m443[0m - [34m[1mRegistered event handler for CleanOperationCompleted[0m
+[32m2026-03-14 09:54:08.637[0m | [34m[1mDEBUG   [0m | [36mdmlclean.domain.events[0m:[36msubscribe[0m:[36m
+
+[83] Invalid location (should fail)
+    Command: python -m dmlclean storage path invalid
+    Exit Code: 1
+    Error: [32m2026-03-14 09:54:15.701[0m | [34m[1mDEBUG   [0m | [36mdmlclean.domain.events[0m:[36msubscribe[0m:[36m304[0m - [34m[1mEventBus: Subscribed handler to CleanOperationCompleted[0m
+[32m2026-03-14 09:54:15.702[0m | [34m[1mDEBUG   [0m | [36mdmlclean.domain.events[0m:[36mdecorator[0m:[36m443[0m - [34m[1mRegistered event handler for CleanOperationCompleted[0m
+[32m2026-03-14 09:54:15.702[0m | [34m[1mDEBUG   [0m | [36mdmlclean.domain.events[0m:[36msubscribe[0m:[36m
+
+[84] Negative days (should fail)
+    Command: python -m dmlclean trends --since -5
+    Exit Code: 1
+    Error: [32m2026-03-14 09:54:22.702[0m | [34m[1mDEBUG   [0m | [36mdmlclean.domain.events[0m:[36msubscribe[0m:[36m304[0m - [34m[1mEventBus: Subscribed handler to CleanOperationCompleted[0m
+[32m2026-03-14 09:54:22.703[0m | [34m[1mDEBUG   [0m | [36mdmlclean.domain.events[0m:[36mdecorator[0m:[36m443[0m - [34m[1mRegistered event handler for CleanOperationCompleted[0m
+[32m2026-03-14 09:54:22.703[0m | [34m[1mDEBUG   [0m | [36mdmlclean.domain.events[0m:[36msubscribe[0m:[36m
+
+[85] Zero limit (should fail)
+    Command: python -m dmlclean history list --limit 0
+    Exit Code: 1
+    Error: [32m2026-03-14 09:54:29.927[0m | [34m[1mDEBUG   [0m | [36mdmlclean.domain.events[0m:[36msubscribe[0m:[36m304[0m - [34m[1mEventBus: Subscribed handler to CleanOperationCompleted[0m
+[32m2026-03-14 09:54:29.928[0m | [34m[1mDEBUG   [0m | [36mdmlclean.domain.events[0m:[36mdecorator[0m:[36m443[0m - [34m[1mRegistered event handler for CleanOperationCompleted[0m
+[32m2026-03-14 09:54:29.929[0m | [34m[1mDEBUG   [0m | [36mdmlclean.domain.events[0m:[36msubscribe[0m:[36m
+
+[86] Extreme limit (should fail)
+    Command: python -m dmlclean history list --limit 9999
+    Exit Code: 1
+    Error: [32m2026-03-14 09:54:37.132[0m | [34m[1mDEBUG   [0m | [36mdmlclean.domain.events[0m:[36msubscribe[0m:[36m304[0m - [34m[1mEventBus: Subscribed handler to CleanOperationCompleted[0m
+[32m2026-03-14 09:54:37.133[0m | [34m[1mDEBUG   [0m | [36mdmlclean.domain.events[0m:[36mdecorator[0m:[36m443[0m - [34m[1mRegistered event handler for CleanOperationCompleted[0m
+[32m2026-03-14 09:54:37.133[0m | [34m[1mDEBUG   [0m | [36mdmlclean.domain.events[0m:[36msubscribe[0m:[36m
+
+[87] Negative size (should fail)
+    Command: python -m dmlclean clean --min-size -100
+    Exit Code: 1
+    Error: [32m2026-03-14 09:54:46.365[0m | [34m[1mDEBUG   [0m | [36mdmlclean.domain.events[0m:[36msubscribe[0m:[36m304[0m - [34m[1mEventBus: Subscribed handler to CleanOperationCompleted[0m
+[32m2026-03-14 09:54:46.366[0m | [34m[1mDEBUG   [0m | [36mdmlclean.domain.events[0m:[36mdecorator[0m:[36m443[0m - [34m[1mRegistered event handler for CleanOperationCompleted[0m
+[32m2026-03-14 09:54:46.366[0m | [34m[1mDEBUG   [0m | [36mdmlclean.domain.events[0m:[36msubscribe[0m:[36m
+
+[88] Negative days via --days (should fail)
+    Command: python -m dmlclean trends --days -10
+    Exit Code: 1
+    Error: [32m2026-03-14 09:55:01.584[0m | [34m[1mDEBUG   [0m | [36mdmlclean.domain.events[0m:[36msubscribe[0m:[36m304[0m - [34m[1mEventBus: Subscribed handler to CleanOperationCompleted[0m
+[32m2026-03-14 09:55:01.585[0m | [34m[1mDEBUG   [0m | [36mdmlclean.domain.events[0m:[36mdecorator[0m:[36m443[0m - [34m[1mRegistered event handler for CleanOperationCompleted[0m
+[32m2026-03-14 09:55:01.585[0m | [34m[1mDEBUG   [0m | [36mdmlclean.domain.events[0m:[36msubscribe[0m:[36m

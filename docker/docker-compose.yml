@@ -1,0 +1,50 @@
+services:
+  # Production image service
+  dmlclean:
+    build:
+      context: ..
+      dockerfile: docker/Dockerfile
+    image: dmlclean:latest
+    volumes:
+      - /:/host:ro
+      - ./config:/config
+    environment:
+      - DMLCLEAN_CONFIG=/config/config.toml
+      - PYTHONUNBUFFERED=1
+    stdin_open: true
+    tty: true
+    entrypoint: ["dmlclean"]
+    command: ["--help"]
+
+  # Development service with hot-reload
+  dmlclean-dev:
+    build:
+      context: ..
+      dockerfile: docker/Dockerfile.dev
+    image: dmlclean:dev
+    volumes:
+      - ../src:/app/src
+      - ../tests:/app/tests
+      - /:/host:ro
+    environment:
+      - DMLCLEAN_CONFIG=/app/config/config.toml
+      - PYTHONUNBUFFERED=1
+    working_dir: /app
+    stdin_open: true
+    tty: true
+    entrypoint: ["bash"]
+
+  # Test runner
+  test:
+    build:
+      context: ..
+      dockerfile: docker/Dockerfile.dev
+    image: dmlclean:dev
+    volumes:
+      - ../src:/app/src:ro
+      - ../tests:/app/tests
+    environment:
+      - PYTHONUNBUFFERED=1
+    working_dir: /app
+    entrypoint: ["hatch", "run", "test"]
+    command: []

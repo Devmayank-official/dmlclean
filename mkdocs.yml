@@ -1,0 +1,137 @@
+# DML Clean Documentation
+# MkDocs Configuration
+
+site_name: Enterprise-Ready Storage Optimization & Lifecycle Orchestrator
+site_description: Enterprise-grade, module-driven framework engineered for automated system maintenance and storage lifecycle management.
+site_author: DML Labs
+site_url: https://dmlclean.github.io
+
+# Repository
+repo_name: Devmayank-official/dmlclean
+repo_url: https://github.com/Devmayank-official/dmlclean
+edit_uri: edit/main/docs/
+
+# Copyright
+copyright: Copyright &copy; 2026 DML Labs
+
+# Theme
+theme:
+  name: material
+  palette:
+    # Light mode
+    - scheme: default
+      primary: green
+      accent: green
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+    # Dark mode
+    - scheme: slate
+      primary: green
+      accent: green
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+  features:
+    - navigation.tabs
+    - navigation.tabs.sticky
+    - navigation.sections
+    - navigation.expand
+    - navigation.indexes
+    - navigation.top
+    - search.highlight
+    - search.share
+    - content.code.copy
+    - content.code.annotate
+  favicon: assets/favicon.png
+  logo: assets/logo.png
+  language: en
+
+# Customization
+extra:
+  version:
+    provider: mike
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/Devmayank-official
+    - icon: fontawesome/brands/python
+      link: https://pypi.org/project/dmlclean/
+  generator: false
+
+# Extensions
+markdown_extensions:
+  - admonition
+  - attr_list
+  - md_in_html
+  - toc:
+      permalink: true
+      toc_depth: 3
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.superfences
+  - pymdownx.details
+  - pymdownx.tabbed:
+      alternate_style: true
+  - tables
+
+# Plugins
+plugins:
+  - search
+  - mkdocstrings:
+      handlers:
+        python:
+          options:
+            show_source: false
+            show_root_heading: true
+            show_category_heading: true
+            merge_init_into_class: true
+            docstring_style: google
+  - gen-files:
+      scripts:
+        - scripts/gen_ref_pages.py
+  - literate-nav:
+      nav_file: SUMMARY.md
+
+# Page tree
+nav:
+  - Home:
+    - index.md
+    - Features: features.md
+    - Installation: installation.md
+    - Quick Start: QUICKSTART.md
+  - User Guide:
+    - Basic Usage: usage/basic.md
+    - Scanning: usage/scan.md
+    - Cleaning: usage/clean.md
+    - Scheduling: usage/schedule.md
+    - Protected Zone: usage/protect.md
+    - History & Undo: usage/history.md
+    - Reports: usage/reports.md
+    - CLI Commands: cli-commands.md
+  - Configuration:
+    - config.md
+    - Profiles: profiles.md
+    - Environment Variables: env.md
+  - Developer Guide:
+    - Architecture: ARCHITECTURE.md
+    - Repository Pattern: repositories.md
+    - Service Layer: services.md
+    - Plugin System: plugins.md
+    - Storage Paths: storage-paths.md
+    - API Reference:
+      - api/repositories.md
+      - api/services.md
+      - api/plugins.md
+  - Contributing:
+    - CONTRIBUTING.md
+    - Code of Conduct: CODE_OF_CONDUCT.md
+    - Security: SECURITY.md
+  - Release Guide: PRODUCTION_RELEASE_GUIDE.md
+
+# Validation
+validation:
+  omitted_files: warn
+  absolute_links: warn
+  unrecognized_links: warn

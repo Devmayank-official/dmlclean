@@ -1,0 +1,222 @@
+# =============================================================================
+# DMLClean Docker Build Ignore File
+# =============================================================================
+# This file tells Docker which files to exclude during build
+# Optimizes build context size and build speed
+# =============================================================================
+
+# Build output
+dist/
+build/
+*.egg-info/
+*.egg
+
+# Python cache
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.manifest
+*.spec
+
+# Virtual environments
+.venv/
+venv/
+ENV/
+env/
+env.bak/
+venv.bak/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+*.rbc
+*.pyc
+.pytest_cache/
+
+# Testing
+.pytest_cache/
+.coverage
+htmlcov/
+.tox/
+.nox/
+coverage.xml
+*.cover
+*.py,cover
+.hypothesis/
+test-results/
+.nox/
+
+# Type checking
+.mypy_cache/
+.dmypy.json
+dmypy.json
+.pytype/
+.pytype/
+
+# Logs
+*.log
+logs/
+*.log.*
+
+# Environment files
+.env
+.env.local
+.env.*.local
+.env.test
+.env.testing
+
+# Config files (keep samples)
+config.toml
+*.toml
+!pyproject.toml
+
+# Database files
+*.db
+*.sqlite
+*.sqlite3
+*.db-shm
+*.db-wal
+
+# Temporary files
+*.tmp
+*.temp
+tmp/
+temp/
+tmp/
+temp/
+*.bak
+*.swp
+
+# OS files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Documentation (not needed in production image)
+docs/
+*.md
+!README.md
+CHANGELOG.md
+ROADMAP.md
+CONTRIBUTING.md
+SECURITY.md
+CODE_OF_CONDUCT.md
+LICENSE
+BADGES.md
+QWEN.md
+IMPLEMENTATION_PROGRESS.md
+
+# Development scripts
+scripts/
+.devcontainer/
+.dockerignore
+.gitignore
+.dockerignore
+
+# CI/CD (not needed in image)
+.github/
+.gitlab-ci.yml
+.travis.yml
+Jenkinsfile
+azure-pipelines.yml
+appveyor.yml
+
+# Docker files (don't include in build context)
+Dockerfile*
+docker-compose*.yml
+!Dockerfile
+
+# Test files (not needed in production)
+tests/
+test_*.py
+*_test.py
+conftest.py
+noxfile.py
+
+# Documentation build
+site/
+mkdocs.yml
+
+# Internal files
+.internal/
+
+# Git
+.git/
+.gitattributes
+.gitmodules
+
+# Subversion
+.svn/
+
+# Mercurial
+.hg/
+
+# Bazaar
+.bzr/
+
+# Fossil
+.fossil-settings/
+
+# Backup files
+*.backup
+*.bak
+*.old
+
+# Archive files
+*.zip
+*.tar.gz
+*.tar
+*.rar
+
+# Node.js (if present)
+node_modules/
+npm-debug.log
+yarn-error.log
+
+# Rust (if present)
+target/
+Cargo.lock
+
+# Go (if present)
+vendor/
+go.sum
+
+# Java (if present)
+*.class
+*.jar
+*.war
+*.ear
+target/
+.gradle/
+build/
+
+# =============================================================================
+# Notes:
+# =============================================================================
+# - This file optimizes Docker build context size
+# - Excluded files won't be sent to Docker daemon
+# - Speeds up build and reduces image size
+# - Production image only includes necessary files
+# =============================================================================

@@ -1,0 +1,49 @@
+# GitHub CODEOWNERS
+# Defines default reviewers for pull requests
+# https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-code-owners
+
+# Default owners for the entire repository
+* @dmlclean/core-team
+
+# Core source code
+/src/dmlclean/ @dmlclean/core-team
+
+# CLI commands
+/src/dmlclean/cli/ @dmlclean/core-team
+
+# Core engine
+/src/dmlclean/core/ @dmlclean/core-team
+
+# Plugins
+/src/dmlclean/plugins/ @dmlclean/core-team
+
+# Safety and security
+/src/dmlclean/safety/ @dmlclean/security-team
+/src/dmlclean/exceptions/ @dmlclean/security-team
+
+# Storage and database
+/src/dmlclean/storage/ @dmlclean/core-team
+
+# Configuration
+/src/dmlclean/config/ @dmlclean/core-team
+
+# Tests
+/tests/ @dmlclean/core-team
+
+# GitHub Actions workflows
+/.github/workflows/ @dmlclean/devops-team
+
+# Docker configuration
+/Dockerfile @dmlclean/devops-team
+/docker/ @dmlclean/devops-team
+/docker-compose.yml @dmlclean/devops-team
+
+# Documentation
+/docs/ @dmlclean/core-team
+/README.md @dmlclean/core-team
+/CONTRIBUTING.md @dmlclean/core-team
+
+# Build configuration
+/pyproject.toml @dmlclean/core-team
+/dmlclean.spec @dmlclean/devops-team
+/Makefile @dmlclean/core-team

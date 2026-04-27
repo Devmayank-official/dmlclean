@@ -1,0 +1,138 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+pip-wheel-metadata/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# Virtual environments
+venv/
+ENV/
+env/
+.venv
+.env
+
+# PyInstaller
+*.manifest
+*.spec
+
+# EXCEPT: Keep our manifest and spec files
+!dmlclean.manifest
+!dmlclean.spec
+!assets/dmlclean.manifest
+!assets/dmlclean.ico
+!assets/dmlclean.icns
+!assets/dmlclean.png
+!assets/dmlclean_*.png
+!assets/
+
+# Installer logs
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Unit test / coverage reports
+htmlcov/
+.tox/
+.nox/
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+*.py,cover
+.hypothesis/
+.pytest_cache/
+
+# Translations
+*.mo
+*.pot
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# pyenv
+.python-version
+
+# pipenv
+Pipfile.lock
+
+# PEP 582
+__pypackages__/
+
+# Celery stuff
+celerybeat-schedule
+celerybeat.pid
+
+# SageMath parsed files
+*.sage.py
+
+# Environments
+.env
+.venv
+.envrc
+
+# mypy
+.mypy_cache/
+.dmypy.json
+dmypy.json
+
+# Pyre type checker
+.pyre/
+
+# pytype static type analyzer
+.pytype/
+
+# Cython debug symbols
+cython_debug/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Project specific
+*.log
+logs/
+*.db
+*.sqlite
+*.sqlite3
+config.toml
+scheduler.db
+dmlclean.spec
+
+# Test
+tests/fixtures/
+.pytest_cache/
+
+# Build
+dist/
+build/
+*.egg-info/
+
+# Docker
+.docker/
+
+# Dev container
+.devcontainer/

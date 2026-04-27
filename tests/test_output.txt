@@ -1,0 +1,7 @@
+[94m======================================================================[0m
+[94m  DMLClean v0.1.0 - Full Command Suite Test[0m
+[94m  Testing 88 commands[0m
+[94m  Output: C:\Users\Santosh\AppData\Local\Temp\dmlclean-test-20260314-085931[0m
+[94m======================================================================[0m
+
+[1/88] Show version (--version) ... 
